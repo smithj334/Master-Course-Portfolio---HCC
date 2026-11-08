@@ -1,0 +1,6 @@
+print("My contact details")
+print("------------")
+print("Name: Jonathan Smith")
+print("Phone: 555-555-5555")
+print("Email: hccs.edu")
+print("Preffered method of contact: text")
