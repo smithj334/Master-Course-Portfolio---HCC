@@ -1,0 +1,15 @@
+# Reflection 2 — Applying AI to Telecommunications and Future Growth
+
+The clearest way I applied AI to telecommunications in this course is the midterm project, because I built all three pieces myself and I can say exactly what each one did.
+
+First, I simulated network traffic with SimPy. One hundred packets went through three routers in a chain, and I measured how long each one took. The average trip was 5.39 time units, but the fastest was 2.80 and the slowest was 11.35. The difference was waiting in line — packets piled up behind the slowest router. That taught me that in a real network, the problem usually isn't that the equipment is broken. It's that traffic queues up, and queueing is what users feel as slowness.
+
+Second, I built an agent model with Mesa. Ten users all started on the same router, so it congested right away. But each user could move to the least-loaded router, and after 6 reroutes in the first step, the load spread out 4 / 3 / 3 and stayed balanced. Nobody told the network what to do from the top down. The users reacted to congestion, and the network fixed itself. That's adaptive rerouting, and it's the kind of behavior Open RAN is built around — networks that adjust instead of following one fixed rule.
+
+Third, I trained a machine learning model with scikit-learn. I gave it 500 measurements of traffic — how many packets per second, how full the router was, what hour it was — and it learned to predict latency. The pattern it found was the same one from the first simulation: delay shoots up fast when a router is almost full. Then I used those predictions to choose routes. The model compared the current route with an alternate that added a 15 ms detour but carried much less load, and picked whichever was predicted faster. At low load it stayed put. At high load it rerouted. The prediction made the decision.
+
+Those three pieces together are what applying AI to telecom actually means to me now: simulate the problem, let agents react to it, and use predictions to make the call.
+
+The skills I improved most are practical ones. I can write a Python simulation, set up a model, run it, and read the results honestly — including saying what the numbers actually showed instead of what I hoped they would show. I also got better at explaining technical work in plain language, which matters more than I expected. If you can't explain what a model does, you don't really understand it yet.
+
+The areas I want to grow in are clear too. All of my midterm data was simulated. The next step is working with real network data, where the patterns are messier and the answers aren't as clean. I also want to go deeper on machine learning — not just training a model, but understanding when to trust it and when to check it. And I want to keep building toward work where AI runs real systems, not just classroom models. The direction this course points in — networks that manage themselves, and eventually 6G networks built around AI from day one — is the direction I want to keep going.
